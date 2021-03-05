@@ -1,0 +1,1109 @@
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20210304140600)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "orders" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "client_name" varchar, "email" varchar, "cpf" varchar, "cep" varchar, "delivery_value" float, "value" float, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210304140600"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "sku" varchar, "description" varchar, "value" float, "quantity" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210304141957"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-03-04 14:25:40.601585"], ["updated_at", "2021-03-04 14:25:40.601585"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /Users/guilhermesette/.rvm/gems/ruby-2.6.3/bin/rake:23)
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /Users/guilhermesette/.rvm/gems/ruby-2.6.3/bin/rake:23)
+Started POST "/items" for ::1 at 2021-03-04 12:19:04 -0300
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItemsController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 494)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (6.0.3.5) lib/action_controller/metal/request_forgery_protection.rb:215:in `handle_unverified_request'
+actionpack (6.0.3.5) lib/action_controller/metal/request_forgery_protection.rb:247:in `handle_unverified_request'
+actionpack (6.0.3.5) lib/action_controller/metal/request_forgery_protection.rb:242:in `verify_authenticity_token'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:428:in `block in make_lambda'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:200:in `block (2 levels) in halting'
+actionpack (6.0.3.5) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:201:in `block in halting'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:513:in `each'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:134:in `run_callbacks'
+actionpack (6.0.3.5) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.0.3.5) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.0.3.5) lib/action_controller/metal/instrumentation.rb:33:in `block in process_action'
+activesupport (6.0.3.5) lib/active_support/notifications.rb:180:in `block in instrument'
+activesupport (6.0.3.5) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.0.3.5) lib/active_support/notifications.rb:180:in `instrument'
+actionpack (6.0.3.5) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (6.0.3.5) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+activerecord (6.0.3.5) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.3.5) lib/abstract_controller/base.rb:136:in `process'
+actionview (6.0.3.5) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.3.5) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.5) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.5) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.5) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.5) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.5) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.5) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.5) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.5) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.5) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.5) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.5) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.5) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.5) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.5) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.5) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.5) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/items" for ::1 at 2021-03-04 12:20:53 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#create as */*
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms | Allocations: 969)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: item):
+  
+app/controllers/items_controller.rb:67:in `item_params'
+app/controllers/items_controller.rb:24:in `create'
+Started POST "/items" for ::1 at 2021-03-04 12:22:56 -0300
+Processing by ItemsController#create as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[36mItem Create (2.5ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["created_at", "2021-03-04 15:22:56.816795"], ["updated_at", "2021-03-04 15:22:56.816795"]]
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/items/1
+Completed 302 Found in 30ms (ActiveRecord: 4.8ms | Allocations: 7516)
+
+
+Started GET "/items/1" for ::1 at 2021-03-04 12:22:56 -0300
+Processing by ItemsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:62:in `set_item'
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 326)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.0
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+Completed 500 Internal Server Error in 1852ms (ActiveRecord: 0.3ms | Allocations: 31203)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/guilhermesette/beyoungTest/back-end-test/beyougApi/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started POST "/items" for ::1 at 2021-03-04 12:25:32 -0300
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItemsController#create as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[36mItem Create (1.1ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["created_at", "2021-03-04 15:25:32.657584"], ["updated_at", "2021-03-04 15:25:32.657584"]]
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/items/2
+Completed 302 Found in 37ms (ActiveRecord: 2.8ms | Allocations: 7729)
+
+
+Started GET "/items/2" for ::1 at 2021-03-04 12:25:32 -0300
+Processing by ItemsController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:62:in `set_item'
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 847)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.0
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+Completed 500 Internal Server Error in 1493ms (ActiveRecord: 0.3ms | Allocations: 15641)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/guilhermesette/beyoungTest/back-end-test/beyougApi/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started POST "/items" for ::1 at 2021-03-04 12:26:29 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItemsController#create as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["created_at", "2021-03-04 15:26:29.916395"], ["updated_at", "2021-03-04 15:26:29.916395"]]
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/items/3
+Completed 302 Found in 20ms (ActiveRecord: 3.2ms | Allocations: 7690)
+
+
+Started GET "/items/3" for ::1 at 2021-03-04 12:26:29 -0300
+Processing by ItemsController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:62:in `set_item'
+  Rendering items/show.html.erb within layouts/application
+  Rendered items/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1043)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.0
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+Completed 500 Internal Server Error in 1567ms (ActiveRecord: 0.3ms | Allocations: 15572)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/guilhermesette/beyoungTest/back-end-test/beyougApi/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started POST "/items" for ::1 at 2021-03-04 12:27:54 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#create as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["created_at", "2021-03-04 15:27:55.127374"], ["updated_at", "2021-03-04 15:27:55.127374"]]
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 2.6ms | Allocations: 105793)
+
+
+  
+NameError (undefined local variable or method `item' for #<ItemsController:0x00007f940be69050>
+Did you mean?  @item):
+  
+app/controllers/items_controller.rb:28:in `block in create'
+app/controllers/items_controller.rb:26:in `create'
+Started POST "/items" for ::1 at 2021-03-04 12:28:04 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#create as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["created_at", "2021-03-04 15:28:04.219927"], ["updated_at", "2021-03-04 15:28:04.219927"]]
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+No template found for ItemsController#create, rendering head :no_content
+Completed 204 No Content in 23ms (ActiveRecord: 3.7ms | Allocations: 9943)
+
+
+Started POST "/items" for ::1 at 2021-03-04 12:29:14 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#create as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["created_at", "2021-03-04 15:29:14.689586"], ["updated_at", "2021-03-04 15:29:14.689586"]]
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+Completed 406 Not Acceptable in 11ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 7414)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/items_controller.rb:26:in `create'
+Started POST "/items" for ::1 at 2021-03-04 12:29:38 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#create as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[36mItem Create (0.7ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["created_at", "2021-03-04 15:29:39.123117"], ["updated_at", "2021-03-04 15:29:39.123117"]]
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:27:in `block in create'
+  Rendering items/show.json.jbuilder
+  Rendered items/_item.json.jbuilder (Duration: 1.0ms | Allocations: 154)
+  Rendered items/show.json.jbuilder (Duration: 2.7ms | Allocations: 574)
+Completed 200 OK in 26ms (Views: 8.6ms | ActiveRecord: 3.4ms | Allocations: 8953)
+
+
+Started GET "/items" for ::1 at 2021-03-04 12:30:42 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#index as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.4ms | Allocations: 620)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/items_controller.rb:7:in `format'
+app/controllers/items_controller.rb:7:in `index'
+Started GET "/items" for ::1 at 2021-03-04 12:30:57 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#index as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.4ms | Allocations: 612)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/items_controller.rb:7:in `format'
+app/controllers/items_controller.rb:7:in `index'
+Started GET "/items" for ::1 at 2021-03-04 12:31:25 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#index as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 1.2ms | Allocations: 611)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/items_controller.rb:7:in `format'
+app/controllers/items_controller.rb:7:in `index'
+Started GET "/items" for ::1 at 2021-03-04 12:31:34 -0300
+Processing by ItemsController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 570)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/items_controller.rb:7:in `format'
+app/controllers/items_controller.rb:7:in `index'
+Started GET "/items/" for ::1 at 2021-03-04 12:31:39 -0300
+Processing by ItemsController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 570)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/items_controller.rb:7:in `format'
+app/controllers/items_controller.rb:7:in `index'
+Started GET "/items" for ::1 at 2021-03-04 12:31:57 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#index as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  Rendering items/index.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  ↳ app/views/items/index.html.erb:17
+  Rendered items/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 6261)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.0
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+Completed 500 Internal Server Error in 1567ms (ActiveRecord: 0.9ms | Allocations: 12312)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/guilhermesette/beyoungTest/back-end-test/beyougApi/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/items" for ::1 at 2021-03-04 12:32:31 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ItemsController#index as */*
+  Parameters: {"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1, "item"=>{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}}
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.4ms | Allocations: 8118)
+
+
+  [1m[36mCACHE Item Load (0.0ms)[0m  [1m[34mSELECT "items".* FROM "items" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `to_model' for #<Item::ActiveRecord_Relation:0x00007f940f2096f8>
+Did you mean?  to_xml):
+  
+app/controllers/items_controller.rb:9:in `block (2 levels) in index'
+app/controllers/items_controller.rb:7:in `index'
+Started POST "/orders" for ::1 at 2021-03-04 12:36:24 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/order.rb:6:in `<class:Order>'
+app/models/order.rb:1:in `<main>'
+Started POST "/orders" for ::1 at 2021-03-04 12:38:07 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/order.rb:10:in `<class:Order>'
+app/models/order.rb:1:in `<main>'
+Started POST "/orders" for ::1 at 2021-03-04 12:38:39 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/order.rb:14:in `<class:Order>'
+app/models/order.rb:1:in `<main>'
+Started POST "/orders" for ::1 at 2021-03-04 12:38:50 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[36mOrder Create (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 15:38:50.517869"], ["updated_at", "2021-03-04 15:38:50.517869"]]
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 17.2ms | Allocations: 4273)
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 1]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 28.5ms | Allocations: 8193)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 3.9ms | Allocations: 17657)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: items.order_id):
+    1: json.partial! "orders/order", order: @order
+  
+app/views/orders/show.json.jbuilder:3
+app/controllers/orders_controller.rb:28:in `block (2 levels) in create'
+app/controllers/orders_controller.rb:26:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 12:40:36 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 15:40:36.353882"], ["updated_at", "2021-03-04 15:40:36.353882"]]
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 24.2ms | Allocations: 2009)
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 2]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 27.8ms | Allocations: 4767)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 3.9ms | Allocations: 13610)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: items.order_id):
+    1: json.partial! "orders/order", order: @order
+  
+app/views/orders/show.json.jbuilder:3
+app/controllers/orders_controller.rb:28:in `block (2 levels) in create'
+app/controllers/orders_controller.rb:26:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 12:40:49 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 15:40:49.893247"], ["updated_at", "2021-03-04 15:40:49.893247"]]
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 9.6ms | Allocations: 2734)
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 3]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 19.7ms | Allocations: 6817)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 3.9ms | Allocations: 17967)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: items.order_id):
+    1: json.partial! "orders/order", order: @order
+  
+app/views/orders/show.json.jbuilder:3
+app/controllers/orders_controller.rb:28:in `block (2 levels) in create'
+app/controllers/orders_controller.rb:26:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 12:46:26 -0300
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[1, 2, 3], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[36mOrder Create (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 15:46:26.230894"], ["updated_at", "2021-03-04 15:46:26.230894"]]
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 1.6ms | Allocations: 188)
+  [1m[36mItem Load (1.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 4]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 7.7ms | Allocations: 2794)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 4.7ms | Allocations: 7693)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: items.order_id):
+    1: json.partial! "orders/order", order: @order
+  
+app/views/orders/show.json.jbuilder:3
+app/controllers/orders_controller.rb:28:in `block (2 levels) in create'
+app/controllers/orders_controller.rb:26:in `create'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[35mDROP TABLE "items"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210304141957"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "sku" varchar, "description" varchar, "value" float, "quantity" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210304141957"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/orders" for ::1 at 2021-03-04 12:48:03 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[1, 2, 3], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[36mOrder Create (1.2ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 15:48:03.145139"], ["updated_at", "2021-03-04 15:48:03.145139"]]
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 11.4ms | Allocations: 2734)
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 5]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 22.2ms | Allocations: 6817)
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 4.2ms | Allocations: 17969)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: items.order_id):
+    1: json.partial! "orders/order", order: @order
+  
+app/views/orders/show.json.jbuilder:3
+app/controllers/orders_controller.rb:28:in `block (2 levels) in create'
+app/controllers/orders_controller.rb:26:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "items"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210304141957"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "sku" varchar, "description" varchar, "value" float, "quantity" integer, "orders_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_items_on_orders_id" ON "items" ("orders_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210304141957"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/orders" for ::1 at 2021-03-04 12:49:34 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[1, 2, 3], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[36mOrder Create (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 15:49:34.128903"], ["updated_at", "2021-03-04 15:49:34.128903"]]
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 10.4ms | Allocations: 2891)
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 6]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 21.5ms | Allocations: 8290)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 3.5ms | Allocations: 20148)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: items.order_id):
+    1: json.partial! "orders/order", order: @order
+  
+app/views/orders/show.json.jbuilder:3
+app/controllers/orders_controller.rb:28:in `block (2 levels) in create'
+app/controllers/orders_controller.rb:26:in `create'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ? LIMIT ?[0m  [["order_id", 1], ["LIMIT", 11]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "items"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20210304141957"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateItems (20210304141957)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "items" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "sku" varchar, "description" varchar, "value" float, "quantity" integer, "order_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_items_on_order_id" ON "items" ("order_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210304141957"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/orders" for ::1 at 2021-03-04 12:52:29 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[1, 2, 3], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 15:52:29.951445"], ["updated_at", "2021-03-04 15:52:29.951445"]]
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:27:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 11.9ms | Allocations: 2734)
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 7]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 22.8ms | Allocations: 5323)
+Completed 201 Created in 72ms (Views: 48.7ms | ActiveRecord: 3.4ms | Allocations: 16479)
+
+
+Started POST "/orders" for ::1 at 2021-03-04 19:09:28 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 6719)
+
+
+  
+NoMethodError (undefined method `items' for #<ActionController::Parameters:0x00007ffc553d75f8>):
+  
+app/controllers/orders_controller.rb:26:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:09:48 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 2.2ms | Allocations: 6768)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:26:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:10:04 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.8ms | Allocations: 6789)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:27:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:11:04 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.7ms | Allocations: 6728)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:27:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:11:36 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms | Allocations: 6695)
+
+
+  
+NoMethodError (undefined method `each' for nil:NilClass):
+  
+app/controllers/orders_controller.rb:28:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:11:59 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 2.5ms | Allocations: 12197)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/orders_controller.rb:29:in `block in create'
+app/controllers/orders_controller.rb:28:in `each'
+app/controllers/orders_controller.rb:28:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:12:43 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 2.0ms | Allocations: 12013)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/orders_controller.rb:29:in `block in create'
+app/controllers/orders_controller.rb:28:in `each'
+app/controllers/orders_controller.rb:28:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:13:20 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 1.4ms | Allocations: 12030)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/orders_controller.rb:30:in `block in create'
+app/controllers/orders_controller.rb:28:in `each'
+app/controllers/orders_controller.rb:28:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:20:41 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 400 Bad Request in 13ms (ActiveRecord: 0.0ms | Allocations: 6204)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: item):
+  
+app/controllers/orders_controller.rb:29:in `block in create'
+app/controllers/orders_controller.rb:28:in `each'
+app/controllers/orders_controller.rb:28:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:21:05 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+Completed 500 Internal Server Error in 309ms (ActiveRecord: 1.9ms | Allocations: 109805)
+
+
+  
+NameError (undefined local variable or method `itemToSave' for #<OrdersController:0x00007ffc57175290>
+Did you mean?  @itemToSave):
+  
+app/controllers/orders_controller.rb:32:in `block in create'
+app/controllers/orders_controller.rb:28:in `each'
+app/controllers/orders_controller.rb:28:in `create'
+Started POST "/orders" for ::1 at 2021-03-04 19:21:17 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mOrder Create (4.8ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 22:21:17.421784"], ["updated_at", "2021-03-04 22:21:17.421784"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mItem Create (0.9ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "order_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["order_id", 8], ["created_at", "2021-03-04 22:21:17.429585"], ["updated_at", "2021-03-04 22:21:17.429585"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "order_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM2"], ["description", "PC"], ["value", 3.0], ["quantity", 2], ["order_id", 8], ["created_at", "2021-03-04 22:21:17.433809"], ["updated_at", "2021-03-04 22:21:17.433809"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 26.3ms | Allocations: 828)
+  [1m[36mItem Load (3.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 8]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 35.7ms | Allocations: 2616)
+Completed 201 Created in 87ms (Views: 37.1ms | ActiveRecord: 14.8ms | Allocations: 22759)
+
+
+Started GET "/orders/" for ::1 at 2021-03-04 19:22:59 -0300
+Processing by OrdersController#index as */*
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:20
+  Rendered orders/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2425)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+yarn run v1.22.0
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+
+error Command "webpack" not found.
+
+Completed 500 Internal Server Error in 1847ms (ActiveRecord: 0.2ms | Allocations: 11612)
+
+
+  
+ActionView::Template::Error (Webpacker can't find application in /Users/guilhermesette/beyoungTest/back-end-test/beyougApi/public/packs/manifest.json. Possible causes:
+1. You want to set webpacker.yml value of compile to true for your environment
+   unless you are using the `webpack -w` or the webpack-dev-server.
+2. webpack has not yet re-run to reflect updates.
+3. You have misconfigured Webpacker's config/webpacker.yml file.
+4. Your webpack configuration is not creating a manifest.
+Your manifest contains:
+{
+}
+):
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+    12:   <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/orders/" for ::1 at 2021-03-04 19:32:15 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:20
+  Rendered orders/index.html.erb within layouts/application (Duration: 31.3ms | Allocations: 8813)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.6ms | Allocations: 12526)
+
+
+  
+ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.
+):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/views/layouts/application.html.erb:8
+Started POST "/orders" for ::1 at 2021-03-04 19:32:24 -0300
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mOrder Create (31.0ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 22:32:24.712012"], ["updated_at", "2021-03-04 22:32:24.712012"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mItem Create (0.6ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "order_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["order_id", 9], ["created_at", "2021-03-04 22:32:24.751128"], ["updated_at", "2021-03-04 22:32:24.751128"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "order_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM2"], ["description", "PC"], ["value", 3.0], ["quantity", 2], ["order_id", 9], ["created_at", "2021-03-04 22:32:24.755791"], ["updated_at", "2021-03-04 22:32:24.755791"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 0.3ms | Allocations: 113)
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 9]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 2.9ms | Allocations: 1668)
+Completed 201 Created in 78ms (Views: 3.4ms | ActiveRecord: 34.7ms | Allocations: 14283)
+
+
+Started GET "/orders/" for ::1 at 2021-03-04 19:33:50 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Order Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 283ms (ActiveRecord: 0.0ms | Allocations: 109732)
+
+
+  [1m[36mCACHE Order Load (0.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NameError (undefined local variable or method `orders' for #<OrdersController:0x00007ffc5818aec8>
+Did you mean?  @orders):
+  
+app/controllers/orders_controller.rb:7:in `index'
+Started GET "/orders/" for ::1 at 2021-03-04 19:34:06 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1653)
+
+
+  
+TypeError (no implicit conversion of Order::ActiveRecord_Relation into String):
+  
+app/controllers/orders_controller.rb:7:in `index'
+Started GET "/orders/" for ::1 at 2021-03-04 19:35:38 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:20
+  Rendered orders/index.html.erb within layouts/application (Duration: 29.0ms | Allocations: 9420)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.9ms | Allocations: 13133)
+
+
+  
+ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.
+):
+     5:     <%= csrf_meta_tags %>
+     6:     <%= csp_meta_tag %>
+     7: 
+     8:     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+     9:     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    10:   </head>
+    11: 
+  
+app/views/layouts/application.html.erb:8
+Started GET "/orders/" for ::1 at 2021-03-04 19:36:22 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:20
+  Rendered orders/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 9400)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.2ms | Allocations: 13112)
+
+
+Started POST "/orders" for ::1 at 2021-03-04 19:36:29 -0300
+Processing by OrdersController#create as */*
+  Parameters: {"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0, "items"=>[{"sku"=>"ITEM1", "description"=>"iphone", "value"=>5.0, "quantity"=>1}, {"sku"=>"ITEM2", "description"=>"PC", "value"=>3.0, "quantity"=>2}], "order"=>{"client_name"=>"Guilherme", "email"=>"guilhermesette@gmail.com", "cpf"=>"444.322.111-11", "cep"=>"06150040", "delivery_value"=>11.0, "value"=>100.0}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("client_name", "email", "cpf", "cep", "delivery_value", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["client_name", "Guilherme"], ["email", "guilhermesette@gmail.com"], ["cpf", "444.322.111-11"], ["cep", "06150040"], ["delivery_value", 11.0], ["value", 100.0], ["created_at", "2021-03-04 22:36:29.512354"], ["updated_at", "2021-03-04 22:36:29.512354"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "order_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM1"], ["description", "iphone"], ["value", 5.0], ["quantity", 1], ["order_id", 10], ["created_at", "2021-03-04 22:36:29.528003"], ["updated_at", "2021-03-04 22:36:29.528003"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("sku", "description", "value", "quantity", "order_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["sku", "ITEM2"], ["description", "PC"], ["value", 3.0], ["quantity", 2], ["order_id", 10], ["created_at", "2021-03-04 22:36:29.532071"], ["updated_at", "2021-03-04 22:36:29.532071"]]
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/orders_controller.rb:32:in `block in create'
+  Rendering orders/show.json.jbuilder
+  Rendered orders/_order.json.jbuilder (Duration: 1.0ms | Allocations: 113)
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."order_id" = ?[0m  [["order_id", 10]]
+  ↳ app/views/orders/show.json.jbuilder:3
+  Rendered orders/show.json.jbuilder (Duration: 26.7ms | Allocations: 1669)
+Completed 201 Created in 64ms (Views: 27.2ms | ActiveRecord: 4.3ms | Allocations: 14570)
+
+
+Started GET "/orders/" for ::1 at 2021-03-04 19:40:01 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1635)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/orders_controller.rb:8:in `format'
+app/controllers/orders_controller.rb:8:in `index'
+Started GET "/orders/" for ::1 at 2021-03-04 19:40:20 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 11383)
+
+
+  [1m[36mCACHE Order Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NoMethodError (undefined method `to_model' for #<Order::ActiveRecord_Relation:0x00007ffc5f835c58>
+Did you mean?  to_xml):
+  
+app/controllers/orders_controller.rb:8:in `index'
+Started GET "/orders/" for ::1 at 2021-03-04 19:40:48 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1653)
+
+
+  
+TypeError (no implicit conversion of Order::ActiveRecord_Relation into String):
+  
+app/controllers/orders_controller.rb:8:in `index'
+Started GET "/orders/" for ::1 at 2021-03-04 19:42:07 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1648)
+
+
+  
+JSON::ParserError (767: unexpected token at '#<Order::ActiveRecord_Relation:0x00007ffc527d22a0>'):
+  
+app/controllers/orders_controller.rb:8:in `index'
+Started GET "/orders/" for ::1 at 2021-03-04 19:42:24 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/orders/index.html.erb:20
+  Rendered orders/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 9595)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.5ms | Allocations: 13280)
+
+
+Started GET "/orders/" for ::1 at 2021-03-04 19:46:52 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mCACHE Order Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+Completed 500 Internal Server Error in 270ms (ActiveRecord: 0.0ms | Allocations: 109288)
+
+
+  [1m[36mCACHE Order Load (0.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" LIMIT ?[0m  [["LIMIT", 11]]
+  
+NameError (undefined local variable or method `orders' for #<OrdersController:0x00007ffc555576d0>
+Did you mean?  @orders):
+  
+app/controllers/orders_controller.rb:8:in `index'
+Started GET "/orders/" for ::1 at 2021-03-04 19:47:02 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by OrdersController#index as */*
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/controllers/orders_controller.rb:8:in `index'
+Completed 200 OK in 33ms (Views: 25.5ms | ActiveRecord: 2.0ms | Allocations: 10121)
+
+
